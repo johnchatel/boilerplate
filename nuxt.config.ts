@@ -13,5 +13,14 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/ui'
   ],
-  css: ['~/assets/css/main.css']
+  
+
+  css: ['~/assets/css/main.css'],
+  
+  // Configuration du mode couleur
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark',
+    classSuffix: ''
+  }
 })
