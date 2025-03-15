@@ -34,27 +34,27 @@ const navigationItems = [
   {
     label: 'Tableau de bord',
     icon: 'i-heroicons-home',
-    to: '/'
+    to: '/account'
   },
   {
     label: 'Profil',
     icon: 'i-heroicons-user',
-    to: '/profile'
+    to: '/account/profile'
   },
   {
     label: 'Abonnements',
     icon: 'i-heroicons-credit-card',
-    to: '/subscriptions'
+    to: '/account/subscriptions'
   },
   {
     label: 'Paramètres',
     icon: 'i-heroicons-cog-6-tooth',
-    to: '/settings'
+    to: '/account/settings'
   },
   {
     label: 'Paiements',
     icon: 'i-heroicons-banknotes',
-    to: '/payments'
+    to: '/account/payments'
   }
 ]
 
@@ -64,9 +64,19 @@ defineEmits(['navigate'])
 // Vérifier si un lien est actif
 const route = useRoute()
 const isActive = (path: string) => {
-  if (path === '/') {
-    return route.path === '/'
+  // Cas spécial pour le tableau de bord (/account)
+  if (path === '/account') {
+    // Actif uniquement si c'est exactement /account ou /account/
+    return route.path === '/account' || route.path === '/account/'
   }
-  return route.path.startsWith(path)
+  
+  // Pour les autres liens, vérifier si le chemin actuel commence par le chemin du lien
+  // et s'assurer que c'est bien un sous-chemin (pas juste un préfixe partiel)
+  if (route.path.startsWith(path)) {
+    // Vérifier si c'est exactement ce chemin ou un sous-chemin
+    return route.path === path || route.path.startsWith(path + '/')
+  }
+  
+  return false
 }
 </script>
