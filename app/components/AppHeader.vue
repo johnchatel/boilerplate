@@ -1,4 +1,7 @@
 <script setup lang="ts">
+// Importation explicite du composant AppLogo
+import AppLogo from './AppLogo.vue'
+
 const navigation = [
   { name: 'Accueil', href: '/' },
   { name: 'Fonctionnalités', href: '/' },
@@ -21,7 +24,9 @@ const toggleDarkMode = () => {
       <div class="flex items-center justify-between">
         <!-- Logo et nom du site -->
         <NuxtLink to="/" class="flex items-center space-x-2 text-gray-800 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">
-          <UIcon name="i-simple-icons-nuxt" class="h-8 w-8" />
+          <div class="h-8 w-8">
+            <AppLogo color="primary" />
+          </div>
           <span class="text-xl font-medium">Boilerplate</span>
         </NuxtLink>
 
@@ -47,7 +52,7 @@ const toggleDarkMode = () => {
             aria-label="Toggle dark mode"
             @click="toggleDarkMode"
           />
-          <UButton color="primary" variant="soft" label="Se connecter" />
+          <UButton color="primary" variant="soft" to="/login" label="Se connecter" />
         </div>
       </div>
     </div>

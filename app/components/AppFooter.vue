@@ -11,9 +11,9 @@
             Une base solide pour vos projets Nuxt 3, optimisée pour la productivité.
           </p>
           <div class="flex space-x-4">
-            <UButton color="gray" variant="ghost" icon="i-simple-icons-github" :padded="false" />
-            <UButton color="gray" variant="ghost" icon="i-simple-icons-twitter" :padded="false" />
-            <UButton color="gray" variant="ghost" icon="i-simple-icons-discord" :padded="false" />
+            <UButton color="primary" variant="ghost" icon="i-simple-icons-github" :padded="false" />
+            <UButton color="primary" variant="ghost" icon="i-simple-icons-twitter" :padded="false" />
+            <UButton color="primary" variant="ghost" icon="i-simple-icons-discord" :padded="false" />
           </div>
         </div>
         <div>
